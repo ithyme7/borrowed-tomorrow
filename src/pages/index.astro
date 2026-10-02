@@ -1,0 +1,38 @@
+---
+import '../styles/library.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Borrow an impossible object. Return it before history notices. A time-travelling library with a real constraint engine." />
+    <title>Borrowed Tomorrow — A library outside of time</title>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="wordmark" href="#"><span class="mark" aria-hidden="true">↗</span> Borrowed Tomorrow<span class="edition">EST. NEXT TUESDAY</span></a>
+      <nav aria-label="Main navigation"><a href="#catalogue">The collection</a><a href="#desk">Librarian’s desk</a><a href="#how">How it works</a></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow"><span class="dot"></span> YOUR LIBRARY CARD WORKS IN EVERY CENTURY</p><h1>Borrow the<br/>un<span class="serif">possible.</span></h1><p class="hero-description">An umbrella storing sunshine. An atlas of unbuilt streets. Six peculiar objects, one very particular librarian.</p><a class="primary" href="#catalogue">Find your next anachronism <span aria-hidden="true">↗</span></a><p class="small-note">No money, no actual time travel. Just an unusually strict library.</p></div>
+        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="artifact-center">⌛</div><div class="float float-one">◷ <span>RETURN BEFORE<br/>THE PARADOX</span></div><div class="float float-two">↶<span>OVERDUE<br/>SINCE TOMORROW</span></div><div class="stamp">NO LATE FEES<br/><b>ONLY CONSEQUENCES</b></div></div>
+      </section>
+      <div class="source-strip"><span id="source-label">Loading catalogue…</span><span id="source-detail">All characters and objects are fictional.</span></div>
+      <section class="catalogue-section" id="catalogue" aria-labelledby="catalogue-heading">
+        <div class="section-heading"><div><p class="eyebrow">01 / THE COLLECTION</p><h2 id="catalogue-heading">Objects with a past.<br/><span class="muted">And a scheduling problem.</span></h2></div><label class="filter-label" for="era-filter">Browse by destination<select id="era-filter"><option value="all">Every era</option></select></label></div>
+        <div id="catalogue-grid" class="catalogue-grid" aria-live="polite"></div>
+      </section>
+      <section class="desk-section" id="desk" aria-labelledby="desk-heading">
+        <div class="desk-intro"><p class="eyebrow">02 / THE LIBRARIAN’S DESK</p><h2 id="desk-heading">History has rules.<br/><span class="serif">We check them.</span></h2><p>Choose an object, a destination, and a borrowing window. A proposal can be approved only if it still passes every check at the moment of approval.</p><div class="rules"><div><span>01</span><p>The object must exist in your destination era.</p></div><div><span>02</span><p>A broken object stays in the restoration room.</p></div><div><span>03</span><p>One object cannot be in two places at once.</p></div></div><div class="demo-note"><strong>Local rehearsal</strong><p>Your proposals and approvals stay in this browser tab. They do not reserve real objects or write to Sanity.</p></div></div>
+        <div class="desk-work"><form id="reservation-form"><div class="form-header"><span class="ticket-label">BORROWING REQUEST</span><span aria-hidden="true">✦</span></div><label for="object-select">Object<select id="object-select" required></select></label><label for="era-select">Destination era<select id="era-select" required></select></label><div class="date-row"><label for="start-date">Pick up<input id="start-date" type="date" required /></label><label for="end-date">Return before<input id="end-date" type="date" required /></label></div><p class="date-help">The return day is excluded. Another borrower can collect that same day.</p><label for="borrower-name">Your library nickname<input id="borrower-name" value="Curious traveller" maxlength="48" autocomplete="off" required /></label><button class="primary submit" type="submit">Check the timeline <span aria-hidden="true">→</span></button></form><div id="assessment" class="assessment" role="status" aria-live="polite"><p class="assessment-idle">A quiet timeline is a happy timeline.<br/>Start with a borrowing request.</p></div></div>
+      </section>
+      <section class="ledger-section" aria-labelledby="ledger-heading"><div class="section-heading"><div><p class="eyebrow">03 / THE TIMELINE</p><h2 id="ledger-heading">Nothing happens <span class="serif">off the record.</span></h2></div><button id="reset-demo" class="text-button" type="button">Reset local rehearsal ↺</button></div><p class="ledger-help">Approved loans block overlapping requests. Proposals are assessed again before approval.</p><div id="ledger" class="ledger" aria-live="polite"></div><p id="ledger-feedback" role="status" class="ledger-feedback"></p></section>
+      <section class="how-section" id="how"><div><p class="eyebrow">UNDER THE ODDNESS</p><h2>Structured content.<br/><span class="serif">Actual consequences.</span></h2></div><div><p>This app joins objects to the eras they can visit and reservations to their objects. Change a reference, restoration status, or approved loan, and the next assessment changes.</p><p>The catalogue loads published Sanity content. Its source appears above the collection; if the connection fails, the demo clearly labels its local sample content. Borrowing approvals stay in this tab. The rules engine runs without a paid AI API.</p><a href="https://dev.to/challenges/sanity-2026-09-16" target="_blank" rel="noopener noreferrer">Prepared for the Sanity Challenge ↗</a></div></section>
+    </main>
+    <footer><span>Borrowed Tomorrow <span class="serif">/</span> Please return the future.</span><span>AI-assisted prototype · Built with Astro · Fictional demo</span></footer>
+    <noscript><p class="no-script">Enable JavaScript to use the interactive catalogue and timeline checks.</p></noscript>
+    <script>import '../library.mjs';</script>
+  </body>
+</html>

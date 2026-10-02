@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+.sanity/
+.npm-cache/
+.env
+.env.*
+!.env.example
+sanity/.env
+sanity/.env.*
+!sanity/.env.example
+fixture.ndjson
+*.log
+.DS_Store
+Thumbs.db

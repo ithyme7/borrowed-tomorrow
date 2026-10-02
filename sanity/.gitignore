@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.sanity/
+.npm-cache/
+.env
+.env.*
+!.env.example
+fixture.ndjson
+*.log

@@ -1,0 +1,14 @@
+{
+  "name": "borrowed-tomorrow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A time-travelling lending library. Local rehearsal plus a public Sanity content reader.",
+  "scripts": {
+    "dev": "astro dev --host localhost --port 3333",
+    "build": "astro build",
+    "preview": "astro preview --host localhost --port 3333",
+    "test": "node --test src/domain/tests/engine.test.mjs src/tests/*.test.mjs"
+  },
+  "dependencies": { "astro": "7.3.5" }
+}

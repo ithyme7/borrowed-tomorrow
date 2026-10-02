@@ -1,0 +1,10 @@
+{
+  "name": "borrowed-tomorrow-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {"dev": "sanity dev", "build": "sanity build", "check": "tsc --noEmit", "export:fixture": "node export-fixture.mjs"},
+  "dependencies": {"sanity": "6.17.0", "react": "19.3.0", "react-dom": "19.3.0", "styled-components": "^6.1.15"},
+  "devDependencies": {"typescript": "^5.9.3", "@types/node": "^22.0.0", "@types/react": "^19.0.0"}
+}

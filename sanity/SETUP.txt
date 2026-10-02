@@ -1,0 +1,62 @@
+BORROWED TOMORROW — PUBLIC SANITY SCHEMA AND READ CONTRACT
+AI-assisted code; all catalogue data fictional. Prepared 2 October 2026.
+
+PUBLIC DATA
+Project v9cykwdr; public dataset production. The initial import is complete:
+5 eras, 6 artifacts, 6 reservations. Anonymous published data matched the fixture.
+Only public identifiers appear in the example environment files. No write token,
+account session, provisioning result or owner claim link is part of this package.
+
+READ CONTRACT
+snapshot-query.mjs exports SNAPSHOT_QUERY, SANITY_API_VERSION and
+fetchPublishedSnapshot({projectId, dataset, fetchImpl?}). It sends a read-only
+HTTPS GET to the configured public dataset, uses the published perspective,
+and fails explicitly. The frontend validates the complete snapshot before use.
+Published artifact documents become objects; _id becomes id; artifactRef._ref
+and eraRef._ref become objectId and eraId.
+
+Snapshot fields:
+  objects: id, name, description, category, availableEraIds, restorationStatus
+  eras: id, name, startDate, endDate
+  reservations: id, objectId, eraId, borrower, startDate, endDate, status,
+                rejectionReason?
+
+Real YYYY-MM-DD dates, half-open [startDate,endDate) intervals. Only approved
+loans occupy inventory. Readiness, era references/bounds and conflicting loans
+are rechecked before local approval. Browser rehearsals are never cloud writes.
+
+STUDIO — OWNER/EDITOR ACCESS REQUIRED
+The Studio is source only in this package; it is not publicly deployed.
+Owner access and any still-pending project claim must be completed through the
+owner's authorized account. The original unclaimed project had a reported expiry
+of 2026-10-05T15:47:54.707Z; confirm its current status before relying on it.
+Use Node >=22.12. From this directory:
+  npm ci
+  npm run check
+Copy .env.example to ignored .env.local, then use npm run dev after obtaining
+the correct editor access. SANITY_STUDIO_ values are exposed in the browser:
+never put secrets in them. Editors authenticate with their own authorized session.
+
+Editorial flow: maintain eras and restoration, inspect proposed loans, then
+approve or reject with a reason. Studio validation is client-side and can be
+bypassed by API writes; concurrent approvals can race. It is not a security or
+transaction boundary. Public frontend changes remain local and disappear on reload.
+
+FIXTURE EXPORT — NO CLOUD WRITE
+  node export-fixture.mjs
+writes NDJSON to stdout. The optional --output fixture.ndjson refuses overwrite.
+The existing fixture import is already complete. There is no automatic import,
+replace, deploy or authenticated cloud-write command in this public setup guide.
+
+PUBLIC BROWSER ORIGIN
+The planned Pages URL is https://ithyme7.github.io/borrowed-tomorrow/.
+Its CORS origin is https://ithyme7.github.io (no repository path). An authorized
+project owner must add that exact origin without credentialed wildcard access.
+Only the original local origin http://localhost:3333 has been verified here.
+A deployed frontend needs a browser check of the actual public Sanity source label.
+
+PRIMARY DOCUMENTATION
+https://www.sanity.io/docs/studio/environment-variables
+https://www.sanity.io/docs/http-reference/query
+https://www.sanity.io/docs/studio/validation
+https://www.sanity.io/docs/content-lake/importing-data
